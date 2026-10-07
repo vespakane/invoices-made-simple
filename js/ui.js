@@ -370,3 +370,28 @@ export function swipeRow(contentEl, actions) {
   row.close = close; row.open = open;
   return row;
 }
+
+// ---------- Full-width text tabs with underline (filters) ----------
+export function tabs(options, value, onChange) {
+  const el = h('div', { class: 'tabs', role: 'tablist' });
+  const buttons = options.map((o) => h('button', { type: 'button', role: 'tab', 'aria-selected': o.value === value ? 'true' : 'false', onClick: () => { select(o.value); onChange(o.value); } }, o.label));
+  function select(v) { buttons.forEach((b, i) => b.setAttribute('aria-selected', options[i].value === v ? 'true' : 'false')); }
+  el.append(...buttons);
+  el.select = select;
+  return el;
+}
+
+// ---------- Floating action button ----------
+export function fab(onClick, label = 'New') {
+  return h('button', { type: 'button', class: 'fab', 'aria-label': label, onClick }, icon('plus'));
+}
+
+// ---------- Bottom tab bar ----------
+export function tabbar(items, active, onChange) {
+  const el = h('nav', { class: 'tabbar', role: 'tablist' });
+  const buttons = items.map((it) => h('button', { type: 'button', role: 'tab', 'aria-selected': it.value === active ? 'true' : 'false', onClick: () => { select(it.value); onChange(it.value); } }, icon(it.icon), h('span', {}, it.label)));
+  function select(v) { buttons.forEach((b, i) => b.setAttribute('aria-selected', items[i].value === v ? 'true' : 'false')); }
+  el.append(...buttons);
+  el.select = select;
+  return el;
+}

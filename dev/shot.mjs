@@ -53,7 +53,7 @@ await send('Emulation.setTouchEmulationEnabled', { enabled: true });
 await send('Emulation.setUserAgentOverride', { userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1' });
 await send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-color-scheme', value: dark ? 'dark' : 'light' }] });
 await waitFor(`http://127.0.0.1:${PORT}/index.html`);
-await send('Page.navigate', { url: `http://127.0.0.1:${PORT}/?sim=iphone&nosw=1&t=${Date.now()}` });
+await send('Page.navigate', { url: process.env.SHOT_URL || `http://127.0.0.1:${PORT}/?sim=iphone&nosw=1&t=${Date.now()}` });
 await sleep(900);
 
 for (let i = 0; i < args.length; i++) {

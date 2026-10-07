@@ -24,9 +24,7 @@ export function menuScreen() {
     const nb = store.state.businesses.length, nc = store.state.clients.length, ni = store.state.savedItems.length;
     const invoices = store.state.documents.filter((d) => d.kind === 'invoice'), estimates = store.state.documents.filter((d) => d.kind === 'estimate');
     content.append(
-      group({},
-        cell({ title: 'Businesses', value: nb ? String(nb) : 'Add', avatar: menuIcon('building', '#5856D6'), chevron: true, onClick: () => nav.push(businessesScreen()) }),
-        cell({ title: 'Clients', value: nc ? String(nc) : 'Add', avatar: menuIcon('people', '#007AFF'), chevron: true, onClick: () => nav.push(clientsScreen()) }),
+      group({ footer: 'Clients and your businesses are managed on the Contacts tab.' },
         cell({ title: 'Items Library', value: ni ? String(ni) : 'Add', avatar: menuIcon('tag', '#FF9500'), chevron: true, onClick: () => nav.push(itemsScreen()) })
       ),
       group({ header: 'Preferences' },

@@ -1,5 +1,5 @@
 // Service worker: caches the app shell so the app works offline.
-const VERSION = 'v6';
+const VERSION = 'v7';
 const CACHE = `invoices-${VERSION}`;
 const SHELL = [
   './',
@@ -24,6 +24,8 @@ const SHELL = [
   './js/xlsx.js',
   './js/zip.js',
   './js/views/home.js',
+  './js/views/doclist.js',
+  './js/views/contacts.js',
   './js/views/menu.js',
   './js/views/businesses.js',
   './js/views/clients.js',
