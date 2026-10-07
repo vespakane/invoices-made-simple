@@ -21,7 +21,7 @@ No build step and no server. The only third-party code is jsPDF and the Open San
 npm run serve
 ```
 
-Then open http://127.0.0.1:8080 in a browser. For a phone-like view in Chrome, use the device toolbar and pick an iPhone, or add `?sim=iphone` to the URL to simulate the iPhone safe areas.
+Then open http://127.0.0.1:8090 in a browser. For a phone-like view in Chrome, use the device toolbar and pick an iPhone, or add `?sim=iphone` to the URL to simulate the iPhone safe areas.
 
 ## Tests
 
