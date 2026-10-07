@@ -1,5 +1,5 @@
 // Service worker: caches the app shell so the app works offline.
-const VERSION = 'v8';
+const VERSION = 'v9';
 const CACHE = `invoices-${VERSION}`;
 const SHELL = [
   './',

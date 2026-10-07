@@ -506,8 +506,12 @@ input[type="date"]::-webkit-date-and-time-value { text-align: right; }
 .plain-list .cell { min-height: 60px; }
 .plain-list .empty { margin-top: 40px; }
 
-/* Installed on the Home Screen: solid header so it matches the status bar color exactly. */
+/* Installed on the Home Screen: the status bar is transparent (black-translucent) and sits over the
+   header's safe-area padding, so the header is made solid and the body behind it uses the same color.
+   That keeps the top strip exactly the header grey in both light and dark mode. */
 @media (display-mode: standalone) {
-  .topbar { background: #F8F8F9; -webkit-backdrop-filter: none; backdrop-filter: none; }
-  @media (prefers-color-scheme: dark) { .topbar { background: #1C1C1E; } }
+  :root { --bar: #F8F8F9; }
+  @media (prefers-color-scheme: dark) { :root { --bar: #1C1C1E; } }
+  body { background: var(--bar); }
+  .topbar, .tabbar { -webkit-backdrop-filter: none; backdrop-filter: none; }
 }
