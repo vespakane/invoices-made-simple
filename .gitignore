@@ -1,0 +1,4 @@
+dev/shots/
+dev/out/
+.DS_Store
+node_modules/
